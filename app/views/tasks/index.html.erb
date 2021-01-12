@@ -9,6 +9,7 @@
     </tr>
   <% @tasks.each do |task| %>
     <tr class = "task_row" >
+      <td><% task.id %></td>
       <td><%= task.name %></td>
       <td><%= task.content %></td>
       <td><%= task.state %></td>
