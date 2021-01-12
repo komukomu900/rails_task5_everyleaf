@@ -1,0 +1,77 @@
+ja:
+  activerecord:
+    models:
+      task: "タスク"
+    attributes:
+      task:
+        name: タスク名
+        content: 内容
+        state: 状態
+        states:
+          not_started: "未着手"
+          started: "着手"
+          done: "完了"
+        deadline: タスク期限
+  view:
+    page_details:
+      list: タスク一覧
+      edit: タスク編集
+      new: タスク作成
+      show: タスク詳細
+    task_name: タスク名
+    task_content: タスク内容
+    task_state: 状態
+    task_deadline: 期限
+    detail: 詳細
+    edit: 編集
+    delete: 削除
+    button:
+      create: 作成
+      edit: 編集
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: 'バリデーションに失敗しました: %{errors}'
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      other_than: は%{count}以外の値にしてください
+      present: は入力しないでください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+    template:
+      body: 次の項目を確認してください
+      header:
+        other: "個のエラーが発生しました"
+    models:
+      task:
+        attributes:
+          name:
+            blank: "空になっています。入力してください。"
+          content:
+            blank: "空になっています。入力してください。"
+  confirm:
+    delete: 本当に削除しますか？
+  choice: 選択してください
+  flash:
+    failure: 失敗しました。
+  notice:
+    success: 登録しました。
+    update: 更新しました。
+    delete: 削除しました。

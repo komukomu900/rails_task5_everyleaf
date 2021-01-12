@@ -4,7 +4,6 @@ RSpec.describe 'タスク管理機能', type: :system do
     FactoryBot.create(:task)
     @task = Task.create!(name: 'task', content: 'test', state: '1', deadline: '2021,01,02,21,30,00')
   end
-
   describe '新規作成機能' do
     context 'タスクを新規作成した場合' do
       it '作成したタスクが表示される' do
@@ -24,6 +23,15 @@ RSpec.describe 'タスク管理機能', type: :system do
         task = FactoryBot.create(:task, name: 'task', content: 'test', state: '着手', deadline: '2021,01,02,21,30,00')
         visit tasks_path
         expect(page).to have_content 'task'
+      end
+    end
+    context 'タスクが作成日時の降順に並んでいること' do
+      it '新しいタスクが一番上に表示される' do
+        task = FactoryBot.create(:task, name: 'task', content: 'test', state: '着手', deadline: '2021,01,02,21,30,00')
+        visit tasks_path
+        t = Task.last
+        task_list = all('.task_row td')[0] 
+        expect(task_list).to have_content t.name
       end
     end
   end

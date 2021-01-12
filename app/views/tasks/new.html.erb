@@ -1,8 +1,8 @@
-<h1>作成</h1>
+<h1><%= t('view.page_details.new') %></h1>
 <%= form_with(model: @task, local: true) do |form| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
-    <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+    <h2><%= @task.errors.count %><%= t('errors.template.header.other') %></h2>
       <ul>
         <% @task.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -11,21 +11,21 @@
     </div>
   <% end %>
   <div>
-    <%= form.label :タスク名 %>
-    <%= form.text_field :name, placeholder: "タスク名" %>
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: t('view.task_name') %>
   </div>
   <div>
-    <%= form.label :タスク内容 %>
-    <%= form.text_field :content, placeholder: "タスク内容" %>
+    <%= form.label :content %>
+    <%= form.text_field :content, placeholder: t('view.task_content') %>
   </div>
   <div>
-    <%= form.label :タスクの状態 %>
-    <%= form.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: '選択してください'} %>
+    <%= form.label :state %>
+    <%= form.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: t('choice')} %>
   </div>
   <div>
-    <%= form.label :タスクの終了期限 %>
-    <%= form.datetime_field :deadline, placeholder: "タスクの終了期限" %>
+    <%= form.label :deadline %>
+    <%= form.datetime_field :deadline, placeholder: t('view.task_deadline') %>
   </div>
-  <%= form.submit "作成" %>
+  <%= form.submit t('view.button.create') %>
 <% end %>
-<%= link_to 'タスク一覧', tasks_path %>
+<%= link_to t('view.page_details.list'), tasks_path %>

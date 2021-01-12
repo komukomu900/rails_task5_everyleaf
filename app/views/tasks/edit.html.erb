@@ -1,8 +1,8 @@
-<h1>編集</h1>
+<h1><%= t('view.page_details.edit') %></h1>
 <%= form_with(model: @task, local: true, url: task_path) do |form| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
-    <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+    <h2><%= @task.errors.count %>errors have occured</h2>
       <ul>
         <% @task.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -11,21 +11,21 @@
     </div>
   <% end %>
   <div>
-    <%= form.label :タスク名 %>
+    <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
   <div>
-    <%= form.label :タスク内容 %>
+    <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
   <div>
-    <%= form.label :タスクの状態 %>
-    <%= form.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"} %>
+    <%= form.label :state %>
+    <%= form.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: t('choice')} %>
   </div>
   <div>
-    <%= form.label :タスクの終了期限 %>
+    <%= form.label :deadline %>
     <%= form.datetime_field :deadline %>
   </div>
-  <%= form.submit "編集" %>
+  <%= form.submit t('view.button.edit') %>
 <% end %>
-<%= link_to 'タスク一覧', tasks_path %>
+<%= link_to t('view.page_details.list'), tasks_path %>
