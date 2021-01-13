@@ -1,5 +1,8 @@
 <h1><%= t('view.page_details.list') %></h1>
 <div><%= link_to t('view.page_details.new'), new_task_path %></div>
+<div>
+  <%= link_to "終了期限でソートする", tasks_path(deadline: 'desc')%>
+</div>
   <table>
     <tr>
       <th><%= t('view.task_name') %></th>
@@ -9,7 +12,6 @@
     </tr>
   <% @tasks.each do |task| %>
     <tr class = "task_row" >
-      <td><% task.id %></td>
       <td><%= task.name %></td>
       <td><%= task.content %></td>
       <td><%= task.state %></td>
