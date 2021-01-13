@@ -20,6 +20,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
+  gem 'rails-i18n', '~> 5.1'
 end
 
 group :development do

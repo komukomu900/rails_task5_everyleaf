@@ -1,6 +1,6 @@
-<h1>詳細</h1>
-  <p>タスク名:<%= @task.name %></p>
-  <p>タスク内容：<%= @task.content %></p>
-  <p>タスクの状態：<%= @task.state %></p>
-  <p>タスクの締め切り：<%= @task.deadline %></p>
-<%= link_to 'タスク一覧', tasks_path %>
+<h1><%= t('view.heading.show') %></h1>
+  <p><%= t('view.task_name') %>:<%= @task.name %></p>
+  <p><%= t('view.task_conetnt') %>：<%= @task.content %></p>
+  <p><%= t('view.task_state') %>：<%= @task.state %></p>
+  <p><%= t('view.task_deadline') %>：<%= @task.deadline %></p>
+<%= link_to t('view.page_details.list'), tasks_path %>
