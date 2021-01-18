@@ -21,11 +21,13 @@ ja:
     task_name: タスク名
     task_content: タスク内容
     task_state: 状態
+    task_priority: 優先度
     task_deadline: 期限
     detail: 詳細
     edit: 編集
     delete: 削除
     button:
+      search: 検索
       create: 作成
       edit: 編集
   errors:

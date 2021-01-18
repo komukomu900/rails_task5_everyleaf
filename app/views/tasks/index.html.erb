@@ -3,11 +3,21 @@
 <div>
   <%= link_to "終了期限でソートする", tasks_path(deadline: 'desc')%>
 </div>
+<div>
+  <%= form_with(url: tasks_path, method: :get, local: true) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :state %>
+    <%= f.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: t('choice')} %>
+    <%= f.submit t('view.button.search') %>
+  <% end %>
+</div>
   <table>
     <tr>
       <th><%= t('view.task_name') %></th>
       <th><%= t('view.task_content') %></th>
       <th><%= t('view.task_state') %></th>
+      <th><%= t('view.task_priority') %></th>
       <th><%= t('view.task_deadline') %></th>
     </tr>
   <% @tasks.each do |task| %>
@@ -15,6 +25,7 @@
       <td><%= task.name %></td>
       <td><%= task.content %></td>
       <td><%= task.state %></td>
+      <td><%= task.priority %></td>
       <td><%= task.deadline.strftime("%Y-%m-%d %H:%M") %></td>
       <td><%= link_to t('view.detail'), task_path(task.id) %></td>
       <td><%= link_to t('view.edit'), edit_task_path(task.id) %></td>
