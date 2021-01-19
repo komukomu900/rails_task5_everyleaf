@@ -39,7 +39,7 @@ describe 'タスク管理機能', type: :system do
     context 'タイトルのあいまい検索とステータス検索をした場合' do
       it "優先順位でソートする" do
         visit tasks_path
-        click_on '優先順位でソートする'
+        click_on '優先度'
         @tasks = Task.all
         t0 = @tasks[0]
         t1 = @tasks[1]

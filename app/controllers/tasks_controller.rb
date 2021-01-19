@@ -6,9 +6,9 @@ class TasksController < ApplicationController
       @search_params = task_search_params
       @tasks = Task.search(@search_params).page(params[:page]).per(10)
     elsif params[:name].present? 
-      @tasks = @tasks.get_by_name params[:name].page(params[:page]).per(10)
+      @tasks = @tasks.get_by_name(params[:name]).page(params[:page]).per(10)
     elsif params[:state].present?
-      @tasks = @tasks.get_by_state params[:state].page(params[:page]).per(10)
+      @tasks = @tasks.get_by_state(params[:state]).page(params[:page]).per(10)
     end
     if params[:deadline].present?
       @tasks = Task.all.order(deadline: "desc").page(params[:page]).per(10)
