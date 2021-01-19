@@ -1,3 +1,21 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 10px;
+}
+tbody {
+  border: 1px solid;
+  border-color: rgb(209, 207, 207);
+}
+tbody tr {
+  border: 1px solid;
+  border-color: rgb(209, 207, 207);
+}
+tbody tr td {
+  overflow: hidden;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+}
