@@ -19,3 +19,16 @@ table {
   table-layout: fixed;
   width: 100%;
 }
+.create {
+  margin: 20px 0;
+  background-color: khaki;
+}
+.detail {
+  background-color: rgb(141, 220, 252);
+}
+.edit {
+  background-color: rgb(20, 182, 247);
+}
+.delete {
+  background-color: rgb(47, 144, 255);
+}
