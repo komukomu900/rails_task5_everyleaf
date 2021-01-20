@@ -1,14 +1,4 @@
-<h1><%= t('view.page_details.list') %></h1>
-<div><%= link_to t('view.page_details.new'), new_task_path, class: 'btn btn-default create' %></div>
-<div>
-  <%= form_with(url: tasks_path, method: :get, local: true) do |f| %>
-    <%= f.label :name, t('view.task_name') %>
-    <%= f.text_field :name %>
-    <%= f.label :state, t('view.task_state') %>
-    <%= f.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: t('choice')} %>
-    <%= f.submit t('view.button.search') %>
-  <% end %>
-</div>
+<h1>自分の作成したタスク</h1>
 <table class ="task_index">
   <tr class = "task_row" >
     <th><%= t('view.task_name') %></th>
@@ -32,5 +22,3 @@
     </td>
   </tr>
 <% end %>
-<%= paginate @tasks %>
-</table>
