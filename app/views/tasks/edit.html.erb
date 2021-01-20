@@ -23,6 +23,10 @@
     <%= form.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: t('choice')} %>
   </div>
   <div>
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priorities.keys.to_a, {include_blank: t('choice')} %>
+  </div>
+  <div>
     <%= form.label :deadline %>
     <%= form.datetime_field :deadline %>
   </div>
