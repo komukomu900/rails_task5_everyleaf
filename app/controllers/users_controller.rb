@@ -32,17 +32,11 @@ class UsersController < ApplicationController
   end
 
   def show
-  end
-
-  def task_index
     @tasks = @user.tasks
   end
 
-  #def favorite
-  #  @blog = @user.blogs
-  #  favorite = Favorite.where(user_id: current_user.id).pluck(:blog_id)
-  #  @favorite_list = Blog.find(favorite)
-  #end
+  def task_index
+  end
 
   def destroy
     @user.destroy

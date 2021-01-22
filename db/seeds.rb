@@ -13,6 +13,17 @@
                 name: name,
                 email: email,
                 password: password,
-                password_confirmation: password,
+                password_confirmation: password
                 )
 end
+name = "admin"
+email = "admin@admin.com"
+password = "admin"
+admin = "true"
+User.create!(
+  name: name,
+  email: email,
+  password: password,
+  password_confirmation: password,
+  admin: admin
+)
