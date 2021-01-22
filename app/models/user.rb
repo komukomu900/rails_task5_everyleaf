@@ -5,7 +5,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]*\.[a-z]+\z/i }
   has_secure_password
   validates :password, presence: true, on: :craete
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   before_update :admin_change_check
   before_destroy :admin_change_check
   def admin_change_check

@@ -4,12 +4,17 @@
   メールアドレス:<%= @user.email %>
 </div>
 <% if @user.id == current_user.id %>
-<div>
-  <%= link_to "ユーザ編集", edit_user_path %>
-</div>
-<div>
-  <%= link_to "ユーザ削除", user_path, method: :delete %>
-</div>
+  <% if @user.admin == true %>
+    <div>
+      <%= link_to 'ユーザ管理画面', admin_users_path %>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "ユーザ編集", edit_user_path %>
+  </div>
+  <div>
+    <%= link_to "ユーザ削除", user_path, method: :delete %>
+  </div>
   <p>自分のタスク一覧</p>
   <table class ="task_index">
     <tr class = "task_row" >

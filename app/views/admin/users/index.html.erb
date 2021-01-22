@@ -1,18 +1,19 @@
 <h1>ユーザ一覧</h1>
+<div><%= link_to "ユーザ作成", new_admin_user_path %></div>
 <table>
   <tr class = "task_row" >
     <th>ユーザ名</th>
     <th>メールアドレス</th>
     <th>作成したタスク数</th>
     <th>管理者</th>
-    <th colspan="2"></th>
+    <th colspan="1"></th>
   </tr>
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.tasks.count %></td>
-    <td id="line-ad-admin">
+    <td>
       <% if user.admin == true %>
         <%= link_to '権限を削除する', change_admin_admin_user_path(user.id) %>
       <% else %>
@@ -20,6 +21,7 @@
       <% end %>
     </td>
     <td>
+      <%= link_to "詳細", admin_user_path(user.id) %>
       <%= link_to "編集", edit_admin_user_path(user.id) %>
       <%= link_to "削除", admin_user_path(user.id), method: :delete %>
     </td>

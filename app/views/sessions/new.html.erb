@@ -1,6 +1,10 @@
 <h1>ログイン</h1>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <p><%= f.email_field :email, placeholder: "メールアドレス" %></p>
-  <p><%= f.password_field :password, placeholder: "パスワード" %></p>
+  <p>
+    <%= f.email_field :email, placeholder: "メールアドレス" %>
+  </p>
+  <p>
+    <%= f.password_field :password, placeholder: "パスワード" %>
+  </p>
   <%= f.submit "ログイン" %>
 <% end %>
