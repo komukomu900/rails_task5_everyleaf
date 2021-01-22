@@ -58,7 +58,7 @@ describe 'ユーザ管理機能', type: :system do
     end
   end
   describe '機能' do
-    context '管理ユーザーでの操作' do
+    context '管理ユーザーでの操作検証' do
       before do
         visit new_session_path
         fill_in 'session_email', with: 'test4@test.com'
