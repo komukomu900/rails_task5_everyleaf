@@ -9,4 +9,5 @@ class Task < ApplicationRecord
   end
   scope :get_by_name, ->(name) {where("name like?","%#{name}%")}
   scope :get_by_state, ->(state) {where(state: state)}
+  belongs_to :user
 end

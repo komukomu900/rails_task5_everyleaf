@@ -10,9 +10,22 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
+    <header>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <% if logged_in? %>
+        <div>
+          <p><%= current_user.name %></p>
+        </div>
+        <span><%= link_to "タスク一覧", root_path %></span>
+        <span><%= link_to "マイページ", user_path(current_user.id) %></span>
+        <span><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></span>
+      <% else %>
+        <span><%= link_to "ユーザ作成", new_user_path %></span>
+        <span><%= link_to "ログイン", new_session_path %></span>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

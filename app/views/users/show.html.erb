@@ -1,0 +1,42 @@
+<h1>詳細</h1>
+<p><%= @user.name %>のページ</p>
+<div>
+  メールアドレス:<%= @user.email %>
+</div>
+<% if @user.id == current_user.id %>
+  <% if @user.admin == true %>
+    <div>
+      <%= link_to 'ユーザ管理画面', admin_users_path %>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "ユーザ編集", edit_user_path %>
+  </div>
+  <div>
+    <%= link_to "ユーザ削除", user_path, method: :delete %>
+  </div>
+  <p>自分のタスク一覧</p>
+  <table class ="task_index">
+    <tr class = "task_row" >
+      <th><%= t('view.task_name') %></th>
+      <th><%= t('view.task_content') %></th>
+      <th><%= t('view.task_state') %></th>
+      <th><%= link_to t('view.task_priority'), tasks_path(priority: 'desc') %></th>
+      <th><%= link_to t('view.task_deadline'), tasks_path(deadline: 'desc') %></th>
+      <th colspan="1"></th>
+    </tr>
+  <% @tasks.each do |task| %>
+    <tr class = "task_row" >
+      <td><%= task.name %></td>
+      <td><%= task.content %></td>
+      <td><%= task.state %></td>
+      <td><%= task.priority %></td>
+      <td><%= task.deadline.strftime("%Y-%m-%d %H:%M") %></td>
+      <td>
+        <%= link_to t('view.detail'), task_path(task.id), class: 'btn btn-default detail' %>
+        <%= link_to t('view.edit'), edit_task_path(task.id), class: 'btn btn-default edit' %>
+        <%= link_to t('view.delete'), task_path(task.id), method: :delete, data:{confirm: t('confirm.delete')}, class: 'btn btn-default delete' %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>
