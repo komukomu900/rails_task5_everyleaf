@@ -4,7 +4,7 @@ ja:
       task: "タスク"
     attributes:
       task:
-        name: タスク名
+        title: タスク名
         content: 内容
         state: 状態
         states:
@@ -18,11 +18,12 @@ ja:
       edit: タスク編集
       new: タスク作成
       show: タスク詳細
-    task_name: タスク名
+    task_title: タスク名
     task_content: タスク内容
     task_state: 状態
     task_priority: 優先度
     task_deadline: 期限
+    task_priority: ラベル
     detail: 詳細
     edit: 編集
     delete: 削除

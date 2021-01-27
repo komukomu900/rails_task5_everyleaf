@@ -18,7 +18,7 @@
   <p>自分のタスク一覧</p>
   <table class ="task_index">
     <tr class = "task_row" >
-      <th><%= t('view.task_name') %></th>
+      <th><%= t('view.task_title') %></th>
       <th><%= t('view.task_content') %></th>
       <th><%= t('view.task_state') %></th>
       <th><%= link_to t('view.task_priority'), tasks_path(priority: 'desc') %></th>
@@ -27,7 +27,7 @@
     </tr>
   <% @tasks.each do |task| %>
     <tr class = "task_row" >
-      <td><%= task.name %></td>
+      <td><%= task.title %></td>
       <td><%= task.content %></td>
       <td><%= task.state %></td>
       <td><%= task.priority %></td>

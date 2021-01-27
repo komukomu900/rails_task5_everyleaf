@@ -4,10 +4,12 @@ class TasksController < ApplicationController
   before_action :authenticate_user, only: [:index, :new, :edit, :show]
   def index
     @tasks = Task.all.order(created_at: "desc")
-    if params[:name].present? && params[:state].present?
+    if params[:title].present? && params[:status].present? && params[:label_id].present?
+      @tasks = @tasks.label_is(params[:label_id]).name_like(params[:name]).status_is(params[:status])
+    elsif params[:title].present? && params[:state].present?
       @search_params = task_search_params
       @tasks = Task.search(@search_params)
-    elsif params[:name].present? 
+    elsif params[:title].present? 
       @tasks = @tasks.get_by_name(params[:name])
     elsif params[:state].present?
       @tasks = @tasks.get_by_state(params[:state])
@@ -55,10 +57,10 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :content, :state, :deadline, :priority)
+    params.require(:task).permit(:title, :content, :state, :deadline, :priority,  { label_ids: [] })
   end
 
   def task_search_params
-    params.permit(:name, :state)
+    params.permit(:title, :state)
   end
 end
