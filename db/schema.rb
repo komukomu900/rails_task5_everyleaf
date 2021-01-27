@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 2021_01_21_142524) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name", null: false
-    t.text "content"
-    t.string "state", null: false
-    t.datetime "deadline", null: false
+    t.text "content", null: false
+    t.string "state"
+    t.datetime "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 0
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_142524) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
