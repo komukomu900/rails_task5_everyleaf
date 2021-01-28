@@ -27,7 +27,7 @@ User.create!(
   password_confirmation: password,
   admin: admin
 )
-5.times do |n|
+10.times do |n|
   label = " ラベル#{n} "
   Label.create!(label: label)
 end
