@@ -7,8 +7,9 @@ class Task < ApplicationRecord
     get_by_title(search_params[:title])
       .get_by_state(search_params[:state])
   end
-  scope :get_by_title, ->(title) {where("title like?","%#{title}%")}
-  scope :get_by_state, ->(state) {where(state: state)}
+  scope :get_by_title, ->(title) {where("title like?","%#{title}%") if title.present? }
+  scope :get_by_state, ->(state) {where(state: state) if state.present? }
+  scope :label_is, -> (labels) { joins(:labels).where(labels: { id: labels }) if labels.present? }
   belongs_to :user
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
