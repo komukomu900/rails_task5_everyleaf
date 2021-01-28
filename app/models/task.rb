@@ -4,10 +4,10 @@ class Task < ApplicationRecord
   enum priority:{low: 0, midium: 1, high: 2}
   scope :search, -> (search_params) do
     return if search_params.blank?
-    get_by_name(search_params[:name])
+    get_by_title(search_params[:title])
       .get_by_state(search_params[:state])
   end
-  scope :get_by_name, ->(name) {where("name like?","%#{name}%")}
+  scope :get_by_title, ->(title) {where("title like?","%#{title}%")}
   scope :get_by_state, ->(state) {where(state: state)}
   belongs_to :user
   has_many :labellings, dependent: :destroy

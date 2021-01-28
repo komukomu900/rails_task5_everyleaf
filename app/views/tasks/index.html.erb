@@ -2,8 +2,8 @@
 <div><%= link_to t('view.page_details.new'), new_task_path, class: 'btn btn-default create' %></div>
 <div>
   <%= form_with(url: tasks_path, method: :get, local: true) do |f| %>
-    <%= f.label :name, t('view.task_name') %>
-    <%= f.text_field :name %>
+    <%= f.label :title, t('view.task_title') %>
+    <%= f.text_field :title %>
     <%= f.label :state, t('view.task_state') %>
     <%= f.select :state, {"未着手":"未着手", "着手":"着手", "完了":"完了"}, {include_blank: t('choice')} %>
     <%= f.select("label_id", Label.pluck(:label, :id), { include_blank: t('choice') }) %>

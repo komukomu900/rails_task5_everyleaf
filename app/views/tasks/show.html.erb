@@ -1,6 +1,11 @@
-<h1><%= t('view.heading.show') %></h1>
+<h1><%= t('view.detail') %></h1>
   <p><%= t('view.task_title') %>:<%= @task.title %></p>
   <p><%= t('view.task_conetnt') %>：<%= @task.content %></p>
   <p><%= t('view.task_state') %>：<%= @task.state %></p>
+  <p><%= t('view.task_state') %>：
+    <% @task.labels.each do |label| %>
+      <%= label.label %>
+    <% end %>
+  </p>
   <p><%= t('view.task_deadline') %>：<%= @task.deadline %></p>
 <%= link_to t('view.page_details.list'), tasks_path %>

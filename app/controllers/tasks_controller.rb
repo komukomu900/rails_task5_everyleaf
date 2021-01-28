@@ -5,12 +5,12 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all.order(created_at: "desc")
     if params[:title].present? && params[:status].present? && params[:label_id].present?
-      @tasks = @tasks.label_is(params[:label_id]).name_like(params[:name]).status_is(params[:status])
+      @tasks = @tasks.label_is(params[:label_id]).name_like(params[:title]).status_is(params[:status])
     elsif params[:title].present? && params[:state].present?
       @search_params = task_search_params
       @tasks = Task.search(@search_params)
     elsif params[:title].present? 
-      @tasks = @tasks.get_by_name(params[:name])
+      @tasks = @tasks.get_by_title(params[:title])
     elsif params[:state].present?
       @tasks = @tasks.get_by_state(params[:state])
     elsif params[:deadline].present?

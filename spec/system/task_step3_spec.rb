@@ -30,7 +30,7 @@ describe 'タスク管理機能', type: :system do
       it "検索キーワードをタイトルに含み、かつステータスに完全一致するタスク絞り込まれる" do
         # ここに実装する
         visit tasks_path
-        fill_in 'name', with: 'test3'
+        fill_in 'title', with: 'test3'
         select '完了', from: 'state'
         click_on '検索'
         expect(page).to have_content 'test3'
