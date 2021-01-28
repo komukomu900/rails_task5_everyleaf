@@ -9,6 +9,10 @@ class TasksController < ApplicationController
     elsif params[:title].present? && params[:state].present?
       @search_params = task_search_params
       @tasks = Task.search(@search_params)
+    elsif params[:title].present? && params[:label_id].present?
+      @tasks = @tasks.label_is(params[:label_id]).name_like(params[:title])
+    elsif params[:status].present? && params[:label_id].present?
+      @tasks = @tasks.label_is(params[:label_id]).status_is(params[:status])
     elsif params[:title].present? 
       @tasks = @tasks.get_by_title(params[:title])
     elsif params[:state].present?
