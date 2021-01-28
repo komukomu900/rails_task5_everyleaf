@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
+  validates :deadline, presence: true
   enum priority:{low: 0, midium: 1, high: 2}
   scope :search, -> (search_params) do
     return if search_params.blank?

@@ -27,7 +27,8 @@ User.create!(
   password_confirmation: password,
   admin: admin
 )
-10.times do |n|
-  label = " ラベル#{n} "
+label = ["経理","社外","経営","調達","営業1","営業2","営業3","技術1","技術2","技術3"]
+label.each do |n|
+  label = "#{n}"
   Label.create!(label: label)
 end

@@ -24,7 +24,7 @@ ja:
     task_state: 状態
     task_priority: 優先度
     task_deadline: 期限
-    task_priority: ラベル
+    task_label: ラベル
     detail: 詳細
     edit: 編集
     delete: 削除

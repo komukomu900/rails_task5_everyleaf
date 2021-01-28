@@ -2,7 +2,8 @@
   <p><%= t('view.task_title') %>:<%= @task.title %></p>
   <p><%= t('view.task_conetnt') %>：<%= @task.content %></p>
   <p><%= t('view.task_state') %>：<%= @task.state %></p>
-  <p><%= t('view.task_state') %>：
+  <p><%= t('view.task_priority') %>：<%= @task.priority %></p>
+  <p><%= t('view.task_label') %>：
     <% @task.labels.each do |label| %>
       <%= label.label %>
     <% end %>

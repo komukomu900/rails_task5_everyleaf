@@ -15,8 +15,8 @@
     <th><%= t('view.task_title') %></th>
     <th><%= t('view.task_content') %></th>
     <th><%= t('view.task_state') %></th>
-    <th><%= t('view.task_label') %></th>
     <th><%= link_to t('view.task_priority'), tasks_path(priority: 'desc') %></th>
+    <th><%= t('view.task_label') %></th>
     <th><%= link_to t('view.task_deadline'), tasks_path(deadline: 'desc') %></th>
     <th colspan="1"></th>
   </tr>

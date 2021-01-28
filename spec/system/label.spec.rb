@@ -79,7 +79,7 @@ RSpec.describe 'タスク機能', type: :system do
         visit root_path
       end
       context 'タスク新規作成' do
-        it 'ラベル追加したタスク作成' do
+        it 'ラベル追加したタスク作成1' do
           click_link 'タスク作成'
           expect(page).to have_content 'タスク作成'
           fill_in 'task_title', with: 'task1_title'
@@ -92,6 +92,54 @@ RSpec.describe 'タスク機能', type: :system do
           expect(page).to have_content 'task1_title'
           expect(page).to have_content 'task1_content'
           expect(page).to have_content 'ラベル3'
+        end
+        it 'ラベル追加したタスク作成2' do
+          click_link 'タスク作成'
+          expect(page).to have_content 'タスク作成'
+          fill_in 'task_title', with: 'task2_title'
+          fill_in 'task_content', with: 'task2_content'
+          fill_in 'task_deadline', with: '002021,01,26,16,40,00'
+          check 'ラベル2'
+          click_on '作成'
+          expect(page).to have_content 'task2_title'
+          expect(page).to have_content 'task2_content'
+          expect(page).to have_content 'ラベル2'
+        end
+        it 'ラベル追加したタスク作成3' do
+          click_link 'タスク作成'
+          expect(page).to have_content 'タスク作成'
+          fill_in 'task_title', with: 'task3_title'
+          fill_in 'task_content', with: 'task3_content'
+          fill_in 'task_deadline', with: '002021,11,26,16,40,00'
+          select 'low', from: 'task_priority'
+          check 'ラベル1'
+          click_on '作成'
+          expect(page).to have_content 'task3_title'
+          expect(page).to have_content 'task3_content'
+          expect(page).to have_content 'ラベル1'
+        end
+        it 'ラベル追加したタスク作成4' do
+          click_link 'タスク作成'
+          expect(page).to have_content 'タスク作成'
+          fill_in 'task_title', with: 'task4_title'
+          fill_in 'task_content', with: 'task4_content'
+          fill_in 'task_deadline', with: '002021,01,06,16,40,00'
+          select '完了', from: 'task_state'
+          check 'ラベル3'
+          click_on '作成'
+          expect(page).to have_content 'task4_title'
+          expect(page).to have_content 'task4_content'
+          expect(page).to have_content 'ラベル3'
+        end
+        it 'ラベルなしタスク作成' do
+          click_link 'タスク作成'
+          expect(page).to have_content 'タスク作成'
+          fill_in 'task_title', with: 'task_title'
+          fill_in 'task_content', with: 'task_content'
+          fill_in 'task_deadline', with: '002021,02,26,16,40,00'
+          click_on '作成'
+          expect(page).to have_content 'task_title'
+          expect(page).to have_content 'task_content'
         end
       end
     context 'タスク編集時' do
