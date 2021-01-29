@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe 'タスク機能', type: :system do
   before do
-    @user1 = FactoryBot.create(:user1)
-    @task1 = FactoryBot.create(:first_task, user: @user1)
-    @task2 = FactoryBot.create(:second_task, user: @user1)
-    @task3 = FactoryBot.create(:third_task, user: @user1)
+    @user = FactoryBot.create(:user6)
+    @task1 = FactoryBot.create(:first_task, user: @user)
+    @task2 = FactoryBot.create(:second_task, user: @user)
+    @task3 = FactoryBot.create(:third_task, user: @user)
     @label1 = FactoryBot.create(:label1)
     @label2 = FactoryBot.create(:label2)
     @label3 = FactoryBot.create(:label3)
@@ -12,15 +12,15 @@ RSpec.describe 'タスク機能', type: :system do
     FactoryBot.create(:labelling, task: @task2, label: @label2)
     FactoryBot.create(:labelling, task: @task3, label: @label3)
     visit new_session_path
-    fill_in 'session_email', with: 'test1@test.com'
+    fill_in 'session_email', with: 'test6@test.com'
     fill_in 'session_password', with: 'test'
     click_button 'ログイン'
   end
   describe 'タスク一覧機能' do
     context 'ログイン後の確認' do
       it 'ログイン後マイページからタスク一覧画面の検証' do
-        expect(page).to have_content 'test1'
-        expect(page).to have_content 'test1@test.com'
+        expect(page).to have_content 'test6'
+        expect(page).to have_content 'test6@test.com'
       end
       it 'タスク一覧画面の確認' do
         visit root_path

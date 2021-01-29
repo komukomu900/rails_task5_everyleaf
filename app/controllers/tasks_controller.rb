@@ -16,29 +16,6 @@ class TasksController < ApplicationController
     end
     @tasks = @tasks.page(params[:page]).per(10)
   end
-#    @tasks = Task.all.order(created_at: "desc")
-#    if params[:title].present? && params[:status].present? && params[:label_id].present?
-#      @tasks = @tasks.label_is(params[:label_id]).name_like(params[:title]).status_is(params[:status])
-#    elsif params[:title].present? && params[:state].present?
-#      @search_params = task_search_params
-#      @tasks = Task.search(@search_params)
-#    elsif params[:title].present? && params[:label_id].present?
-#      @tasks = @tasks.label_is(params[:label_id]).name_like(params[:title])
-#    elsif params[:status].present? && params[:label_id].present?
-#      @tasks = @tasks.label_is(params[:label_id]).status_is(params[:status])
-#    elsif params[:title].present? 
-#      @tasks = @tasks.get_by_title(params[:title])
-#    elsif params[:label_id].present?
-#      @tasks = @tasks.label_is(params[:label_id])
-#    elsif params[:state].present?
-#      @tasks = @tasks.get_by_state(params[:state])
-#    elsif params[:deadline].present?
-#      @tasks = Task.all.order(deadline: "desc")
-#    elsif params[:priority].present?
-#      @tasks = Task.all.order(priority: "desc")
-#    end
-#    @tasks = @tasks.page(params[:page]).per(10)
-#  end
 
   def show
   end
