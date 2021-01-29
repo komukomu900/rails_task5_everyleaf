@@ -18,7 +18,7 @@
   <p>自分のタスク一覧</p>
   <table class ="task_index">
     <tr class = "task_row" >
-      <th><%= t('view.task_name') %></th>
+      <th><%= t('view.task_title') %></th>
       <th><%= t('view.task_content') %></th>
       <th><%= t('view.task_state') %></th>
       <th><%= link_to t('view.task_priority'), tasks_path(priority: 'desc') %></th>
@@ -27,10 +27,15 @@
     </tr>
   <% @tasks.each do |task| %>
     <tr class = "task_row" >
-      <td><%= task.name %></td>
+      <td><%= task.title %></td>
       <td><%= task.content %></td>
       <td><%= task.state %></td>
       <td><%= task.priority %></td>
+      <td>
+        <% task.labels.each do |label| %>
+          <%= label.label %>
+        <% end %>
+      </td>
       <td><%= task.deadline.strftime("%Y-%m-%d %H:%M") %></td>
       <td>
         <%= link_to t('view.detail'), task_path(task.id), class: 'btn btn-default detail' %>

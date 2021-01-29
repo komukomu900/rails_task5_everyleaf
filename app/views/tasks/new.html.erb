@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name, placeholder: t('view.task_name') %>
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: t('view.task_title') %>
   </div>
   <div>
     <%= form.label :content %>
@@ -27,9 +27,12 @@
     <%= form.select :priority, Task.priorities.keys.to_a, {include_blank: t('choice')} %>
   </div>
   <div>
+    <%= form.label :label_ids %>
+    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :label) %>
+  </div>
+  <div>
     <%= form.label :deadline %>
     <%= form.datetime_field :deadline, placeholder: t('view.task_deadline') %>
   </div>
   <%= form.submit t('view.button.create') %>
 <% end %>
-<%= link_to t('view.page_details.list'), tasks_path %>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe 'ユーザ管理機能', type: :system do
   before do
-    @user1 = FactoryBot.create(:user1)
+    @user1 = FactoryBot.create(:user10)
     FactoryBot.create(:user2)
     FactoryBot.create(:user3)
     FactoryBot.create(:user4)
@@ -83,7 +83,7 @@ describe 'ユーザ管理機能', type: :system do
         expect(page).to have_link '詳細', href: admin_user_path(user)
         click_link '詳細', href: admin_user_path(user)
         expect(page).to have_content 'test1'
-        expect(page).to have_content 'test@test.com'
+        expect(page).to have_content 'test1@test.com'
         expect(page).to have_link 'ユーザ編集'
       end
       it 'ユーザーの編集画面から編集できる' do
